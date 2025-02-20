@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header class="site-header">
+        <h1>Map of SMI</h1>
+        <a href="index.html" class="home-button">Back to Home</a>
+    </header>
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <div class="container">
+        <div class="map-container">
+            <img src="/image/comap.jpg" alt="Company Map" class="company-map">
+            
+           
+            <div class="hover-area" id="building-a" onmouseover="showInfo('a')" onmouseout="hideInfo('a')"></div>
+            <div class="hover-area" id="building-b" onmouseover="showInfo('b')" onmouseout="hideInfo('b')"></div>
+            <div class="hover-area" id="building-c" onmouseover="showInfo('c')" onmouseout="hideInfo('c')"></div>
+            <div class="hover-area" id="building-d" onmouseover="showInfo('d')" onmouseout="hideInfo('d')"></div>
+            <div class="hover-area" id="building-e" onmouseover="showInfo('e')" onmouseout="hideInfo('e')"></div>
+
+
+            
+        </div>
+
+        
+        <div id="info-a" class="info-panel">
+            <h3>PLANT A</h3>
+            <img src="/image/buildA.jpg"  alt="Building A">
+            <img src="/image/plantA.jpg" alt="">
+            <p>Description for Building A goes here. Add any relevant information about this building.</p>
+        </div>
+
+        <div id="info-b" class="info-panel">
+            <h3>PLANT B</h3>
+            <img src="/image/plantB.jpg" alt="Building B"> 
+            <img src="/image/plantbbb.jpg" alt="">
+            <img src="/image/plantBb.jpg" alt="">
+            <p>Description for Building B goes here. Add any relevant information about this building.</p>
+        </div>
+
+        <div id="info-c" class="info-panel">
+            <h3>QAD</h3>
+            <h5>Quality Assurance Department</h5>
+            <img src="/image/QAD1.jpg" alt="Building C">
+            <img src="/image/QAD2.jpg" alt="">
+            <img src="/image/QAD3.jpg" alt="">
+            <p>Description for Building C goes here. Add any relevant information about this building.</p>                      
+        </div>
+
+        <div id="info-d" class="info-panel">
+            <h3>Canteen</h3>
+            <img src="building-d.jpg" alt="Building D">
+            <p>Description for Building D goes here. Add any relevant information about this building.</p>
+        </div>
+
+        <div id="info-e" class="info-panel">
+            <h3>Guard post  & Admin office</h3>
+            <img src="building-e.jpg" alt="Building E">
+            <p>Description for Building E goes here. Add any relevant information about this building.</p>
+        </div>
+
+        <div class="globe-container">
+            <div class="globe-wrapper">
+                <img src="/image/glomap.png" alt="Globe" class="globe-image">
+                <div class="location-dot"></div>
+            </div>
+        </div>
+    </div>
+    <script src="map.js"></script>
+</body>
+</html>

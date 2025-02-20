@@ -1,0 +1,212 @@
+:root {
+    --dark-blue: #0a192f;
+    --light-blue: #172a45;
+    --accent-blue: #64ffda;
+    --text-white: #e6f1ff;
+    --text-light: #8892b0;
+}
+
+body {
+    overflow: hidden;
+    background-color: var(--dark-blue);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding-left: 80px;
+    position: relative;
+    justify-content: flex-start;
+}
+
+.map-container {
+    position: relative;
+    top: -112px;
+    width: 600px;  
+    height: 900px;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.company-map {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.hover-area {
+    position: absolute;
+    background-color: rgba(23, 42, 69, 0.7);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.hover-area:hover {
+    background-color: rgba(100, 255, 218, 0.2);
+    border: 1px solid var(--accent-blue);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+}
+
+
+#building-a {
+    top: 85px;
+    left: 120px;
+    width: 150px;
+    height: 340px;
+}
+
+#building-b {
+    top: 85px;
+    right: 150px;
+    width: 150px;
+    height: 340px;
+}
+
+#building-c {
+    top: 460px;
+    right: 320px;
+    width: 150px;
+    height: 160px;
+}
+
+#building-d {
+    top: 460px;
+    right: 175px;
+    width: 90px;
+    height: 90px;
+}
+
+#building-e {
+    top: 720px;
+    right: 175px;
+    width: 110px;
+    height: 90px;
+}
+
+.info-panel {
+    position: fixed;
+    width: 400px;
+    max-height: 80vh; 
+    overflow-y: auto; 
+    background-color: var(--light-blue);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: none;
+    left: 750px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-white);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.info-panel h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.8em;
+    color: var(--accent-blue);
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 8px;
+}
+
+.info-panel h5 {
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+    color: var(--text-light);
+}
+
+.info-panel img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 2px solid var(--accent-blue);
+    transition: transform 0.3s ease;
+}
+
+.info-panel img:hover {
+    transform: scale(1.02);
+}
+
+.info-panel p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-light);
+    font-size: 1.1em;
+    padding-bottom: 10px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+.info-panel.active {
+    display: block;
+    animation: slideIn 0.5s ease-out;
+}
+
+
+.globe-wrapper {
+    position: relative;
+    right: -800px;
+    width: 300%;
+    height: 300%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+    filter: drop-shadow(0 0 50px rgba(100, 255, 218, 0.2));
+}
+
+.globe-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.location-dot {
+    position: absolute;
+    left: 52.5%;
+    top: 41%;
+    width: 12px;
+    height: 12px;
+    background-color: #ff6b00;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 1.5s infinite;
+    z-index: 2;
+}
+
+.location-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6b00;
+    border-radius: 50%;
+    animation: ripple 1.5s infinite;
+    opacity: 0.4;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes ripple {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(3); opacity: 0; }
+}
